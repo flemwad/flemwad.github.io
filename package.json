@@ -1,8 +1,9 @@
 {
   "name": "dh3-reborn-in-react",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.11"
