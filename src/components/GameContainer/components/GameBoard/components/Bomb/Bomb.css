@@ -1,0 +1,9 @@
+.bombdiv {
+    position:relative;
+    background-image: url('./bomblol.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    margin-top:60px;
+    height:333px; 
+    width:288px;
+}
