@@ -39,8 +39,13 @@ class GameSummary extends Component {
                     </p>
                 }
                 {this.state.youLost &&
+                    <p>The city block has been decimated. Game Over!</p>
+                }
+                {this.state.youWon &&
+                    <p>YIPPEE-KI-YAY MOTHAF*KA!!</p>
+                }
+                {(this.state.youWon || this.state.youLost) &&
                     <div>
-                        <p>The city block has been decimated. Game Over!</p>
                         <br /> <i>Hint: There are two possible ways to solve this riddle</i>
                         <br />
                         <button onClick={this.resetBoard}>TRY AGAIN?</button>
