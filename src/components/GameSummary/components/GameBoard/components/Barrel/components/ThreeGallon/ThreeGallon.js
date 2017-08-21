@@ -5,7 +5,6 @@ import empty from './empty3.png';
 import oneGal from './1gal3.png';
 import twoGal from './2gal3.png';
 import fullGal from './fullgal3.png';
-import './ThreeGallon.css';
 
 class ThreeGallon extends Component {
     constructor(props) {

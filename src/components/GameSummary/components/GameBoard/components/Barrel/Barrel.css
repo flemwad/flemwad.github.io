@@ -10,6 +10,8 @@ select {
   margin-left: 5px; 
 }
 
-.barrel-small-margin {
-    margin-top: 40px;
+@media (max-width: 770px) {
+    .barrel-small-margin {
+        margin-top: 40px;
+    }
 }

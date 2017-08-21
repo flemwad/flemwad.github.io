@@ -3,13 +3,19 @@
   background-image: url("./bomblol.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-top: 60px;
   height: 333px;
   width: 288px;
+  margin-top: 20px;
 }
 
 .try-jug {
   width: 250px;
   height: 75px;
   margin-top: 15px;
+}
+
+@media (max-width: 770px) {
+    .barrel-small-margin {
+        margin-top: 40px;
+    }
 }

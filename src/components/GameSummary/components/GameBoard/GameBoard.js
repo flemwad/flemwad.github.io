@@ -58,80 +58,44 @@ class GameBoard extends Component {
         else this.setState({ threeGallonAmt: this.state.threeGallonAmt - fillingAmt });
     }
 
-    // TODO: Could probably HoC this and shrink the htmls
-    renderSmallBoard() {
-        return (
-            <Flexbox flexDirection={'column'} alignItems={'center'} >
-                <Flexbox flexGrow={1} justifyContent={'space-between'}>
-                    <ThreeGallonBarrel
-                        size={3}
-                        disablePour={this.props.gameOver}
-                        amount={this.state.threeGallonAmt}
-                        updateFromSelf={this.updateThreeGallonAmt}
-                        updateFromOther={this.updateThreeFromFive} />
-                </Flexbox>
-                <Flexbox flexGrow={1} justifyContent={'space-between'}>
-                    <Bomb
-                        fiveGallonAmt={this.state.fiveGallonAmt}
-                        gameOver={this.props.gameOver}
-                        setWinCondition={this.setWinCondition} />
-                </Flexbox>
-                <Flexbox flexGrow={1} justifyContent={'space-between'}>
-                    <FiveGallonBarrel
-                        size={5}
-                        disablePour={this.props.gameOver}
-                        amount={this.state.fiveGallonAmt}
-                        updateFromSelf={this.updateFiveGallonAmt}
-                        updateFromOther={this.updateFiveFromThree} />
-                </Flexbox>
-            </Flexbox>
-        );
-    }
-
-    // TODO: Could probably HoC this and shrink the htmls
-    renderLargeBoard() {
-        return (
-            <Flexbox flexDirection={'row'} alignItems={'baseline'} >
-                <Flexbox flexGrow={1} justifyContent={'space-around'}>
-                    <ThreeGallonBarrel
-                        size={3}
-                        disablePour={this.props.gameOver}
-                        amount={this.state.threeGallonAmt}
-                        updateFromSelf={this.updateThreeGallonAmt}
-                        updateFromOther={this.updateThreeFromFive} />
-                </Flexbox>
-                <Flexbox flexGrow={1} justifyContent={'space-around'}>
-                    <Bomb
-                        fiveGallonAmt={this.state.fiveGallonAmt}
-                        gameOver={this.props.gameOver}
-                        setWinCondition={this.setWinCondition} />
-                </Flexbox>
-                <Flexbox flexGrow={1} justifyContent={'space-around'}>
-                    <FiveGallonBarrel
-                        size={5}
-                        disablePour={this.props.gameOver}
-                        amount={this.state.fiveGallonAmt}
-                        updateFromSelf={this.updateFiveGallonAmt}
-                        updateFromOther={this.updateFiveFromThree} />
-                </Flexbox>
-            </Flexbox>
-        );
-    }
-
     render() {
         return (
             <div className="flex-game-board">
-                {/* TODO: MediaQuery structure can be HoC'd too */}
-                <MediaQuery minDeviceWidth={770}>
-                    <MediaQuery minWidth={770}>
-                        {this.renderLargeBoard()}
-                    </MediaQuery>
-                    <MediaQuery maxWidth={770}>
-                        {this.renderSmallBoard()}
-                    </MediaQuery>
-                </MediaQuery>
-                <MediaQuery maxDeviceWidth={770}>
-                    {this.renderSmallBoard()}
+                <MediaQuery minWidth={770} >
+                    {(matches) => {
+                        const boardInfo = {
+                            flexDirection: matches ? 'row' : 'column',
+                            alignItems: matches ? 'baseline' : 'center',
+                            justifyContent: matches ? 'space-around' : 'space-between'
+                        }
+
+                        return (
+                            <Flexbox flexDirection={boardInfo.flexDirection} alignItems={boardInfo.alignItems}>
+                                <Flexbox flexGrow={1} justifyContent={boardInfo.justifyContent}>
+                                    <ThreeGallonBarrel
+                                        size={3}
+                                        disablePour={this.props.gameOver}
+                                        amount={this.state.threeGallonAmt}
+                                        updateFromSelf={this.updateThreeGallonAmt}
+                                        updateFromOther={this.updateThreeFromFive} />
+                                </Flexbox>
+                                <Flexbox flexGrow={1} justifyContent={boardInfo.justifyContent}>
+                                    <Bomb
+                                        fiveGallonAmt={this.state.fiveGallonAmt}
+                                        gameOver={this.props.gameOver}
+                                        setWinCondition={this.setWinCondition} />
+                                </Flexbox>
+                                <Flexbox flexGrow={1} justifyContent={boardInfo.justifyContent}>
+                                    <FiveGallonBarrel
+                                        size={5}
+                                        disablePour={this.props.gameOver}
+                                        amount={this.state.fiveGallonAmt}
+                                        updateFromSelf={this.updateFiveGallonAmt}
+                                        updateFromOther={this.updateFiveFromThree} />
+                                </Flexbox>
+                            </Flexbox>
+                        );
+                    }}
                 </MediaQuery>
             </div>
         );

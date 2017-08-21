@@ -10,9 +10,7 @@ class Bomb extends Component {
         this.checkIfWin = this.checkIfWin.bind(this);
     }
 
-    checkIfWin() {
-        this.props.setWinCondition(this.props.fiveGallonAmt === 4);
-    }
+    checkIfWin = () => this.props.setWinCondition(this.props.fiveGallonAmt === 4);
 
     render() {
         return (

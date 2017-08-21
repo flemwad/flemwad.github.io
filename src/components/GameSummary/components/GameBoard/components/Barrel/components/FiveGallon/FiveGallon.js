@@ -7,7 +7,6 @@ import twoGal from './2gal5.png';
 import threeGal from './3gal5.png';
 import fourGal from './4gal5.png';
 import full from './fullgal5.png';
-import './FiveGallon.css';
 
 class FiveGallon extends Component {
     constructor(props) {
