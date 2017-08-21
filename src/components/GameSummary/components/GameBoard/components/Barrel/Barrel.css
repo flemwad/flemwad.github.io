@@ -1,0 +1,15 @@
+select {
+  width: 150px;
+  height: 75px;
+  margin-top: 15px;
+}
+
+.barrel-btn {
+  height: 75px;
+  margin-top: 15px;
+  margin-left: 5px; 
+}
+
+.barrel-small-margin {
+    margin-top: 40px;
+}

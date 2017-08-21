@@ -17,7 +17,7 @@ class Bomb extends Component {
     render() {
         return (
             <div>
-                <div className="bomb-div">
+                <div className="bomb-div" title="Da Bomb">
                     <BombTimer timeExpired={this.checkIfWin} endTimer={this.props.gameOver} />
                 </div>
                 <button className="try-jug" disabled={this.props.isGameOver} onClick={this.checkIfWin}>PLACE JUG</button>

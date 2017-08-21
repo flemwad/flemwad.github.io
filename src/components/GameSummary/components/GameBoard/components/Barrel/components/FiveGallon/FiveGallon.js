@@ -39,7 +39,7 @@ class FiveGallon extends Component {
 
     render() {
         return (
-            <img className="five-img" src={this.state.imageSrc} height="400" width="200" />
+            <img src={this.state.imageSrc} alt="Five Gallon Jug" title="Five Gallon Jug" />
         );
     }
 }

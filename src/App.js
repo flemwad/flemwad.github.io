@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameContainer from './GameContainer/GameContainer'
+import GameSummary from './components/GameSummary/GameSummary'
 import './App.css';
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
         return (
             <div className="app">
                 <h2>Die Hard 3 Jug Riddle</h2>
-                <GameContainer />
+                <GameSummary />
             </div>
         );
     }

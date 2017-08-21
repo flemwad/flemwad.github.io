@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Flexbox from 'flexbox-react';
 import PropTypes from 'prop-types';
 import './Barrel.css';
 
@@ -32,15 +33,19 @@ const Barrel = (WrappedComponent) => {
 
         render() {
             return (
-                <div>
-                    <WrappedComponent {...this.props} />
-                    <select className="barrel-input-select" disabled={this.props.disablePour} onChange={this.selectPour} value={this.state.pour}>
-                        <option value="empty">Empty</option>
-                        <option value="fill">Fill</option>
-                        <option value="fill-from-other">Fill From Other Jug</option>
-                    </select>
-                    <button className="barrel-btn" disabled={this.props.disablePour} onClick={this.handlePour}>POUR</button>
-                </div>
+                <Flexbox flexDirection={'column'} className="barrel-small-margin">
+                    <Flexbox flexGrow={1}>
+                        <WrappedComponent {...this.props} />
+                    </Flexbox>
+                    <Flexbox flexGrow={1}>
+                        <select className="barrel-input-select" disabled={this.props.disablePour} onChange={this.selectPour} value={this.state.pour}>
+                            <option value="empty">Empty</option>
+                            <option value="fill">Fill</option>
+                            <option value="fill-from-other">Fill From Other Jug</option>
+                        </select>
+                        <button className="barrel-btn" disabled={this.props.disablePour} onClick={this.handlePour}>POUR</button>
+                    </Flexbox>
+                </Flexbox>
             );
         }
     }

@@ -31,7 +31,7 @@ class ThreeGallon extends Component {
 
     render() {
         return (
-            <img className="three-img" src={this.state.imageSrc} height="256" width="200" />
+            <img src={this.state.imageSrc} alt="Three Gallon Jug" title="Three Gallon Jug" />
         );
     }
 }
